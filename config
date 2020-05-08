@@ -1,0 +1,157 @@
+[user]
+  useconfigonly = true            # Make sure a properly setup config is used
+
+[gpg]
+  program = gpg2                  # Use GPGv2 for commit signing.
+
+[alias]
+  last = log --graph -1 HEAD
+  amend = commit --amend --no-edit
+  reword = commit --amend
+  cached = diff --cached
+  check = checkout
+
+  set-upstream = remote add upstream
+  delete = !git branch -D "$1" && git push --delete origin
+  sync = !git pull upstream "$(git rev-parse --abbrev-ref HEAD)" && git fetch upstream "refs/tags/*:refs/tags/*" && git push origin --all
+
+  fetch-branch = !git fetch upstream "$1" && git checkout -b "$1" upstream/"$1" && git push -u origin "$1"
+
+  hub = !hub 
+  gdclone = !gdclone
+  #pull-request = !hub pull-request
+
+  # Commit count between two commits:
+  cc = rev-list --count
+  cp = cherry-pick
+  lg = log --graph --full-history
+  ll = log --graph --full-history --pretty=oneline --abbrev-commit
+
+  fix-bisect = bisect start --term-old broken --term-new fixed
+
+  # Workaround for missing git-completion:
+  filter-repo = filter-repo
+
+[sendemail]
+  confirm = always
+  suppressfrom = true
+  chainreplyto = false
+
+  cc = devel@deekej.io
+  smtpserver = smtp.gmail.com
+
+[branch]
+  # NOTE: Not working anymore for git version >= 1.7.9
+  # autosetuprebase = always        # Use rebase instead of merge for 'git pull'.
+
+[core]
+  quotepath = true                # Use "" quoting for path.
+  editor = gvim -f                # Favorite editor for editing commit msgs etc.
+
+  # Path to file containing types of files to ignore:
+  excludesfile = ~/.config/git/gitignore
+
+  # Inform if tab character is in the initial part of the line,
+  # inform if there are any trailing whitespaces and the end of line/file,
+  # size of tab for fixing tab-in-indent errors
+  whitespace = tab-in-indent, trailing-space, tabwidth=2
+
+  # Workaround for ZSH, to not automatically output everything in less:
+  pager = less -F -X
+
+  # Path to global hooks:
+  #hooksPath = ~/.git/hooks/
+
+  # Automatically fix CRLF line endings for files from Windows:
+  #autocrlf = true
+
+[apply]
+  # If any whitespace error is found, correct it before patching:
+  whitespace = warn
+
+# Enabling colors if the stdout is connected to terminal:
+[color]
+  branch = auto
+  diff = auto
+  decorate = auto
+  grep = auto
+  interactive = auto
+  showbranch = auto
+  status = always
+  ui = auto
+  sh = auto
+
+# Colorization for 'git diff':
+[color "diff"]
+  whitespace = red reverse        # Highlight whitespace trailing characters etc.
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+# Colorization for 'git branch':
+[color "branch"]
+  current = green bold
+  local = green
+  remote = red bold
+
+# Colorization for 'git status':
+[color "status"]
+  added = green bold
+  changed = yellow bold
+  untracked = red bold
+
+# Colorization for 'git-sh':
+[color "sh"]
+  branch = green bold
+  workdir = blue bold
+  dirty = red bold
+  dirty-stash = yellow bold
+  repo-state = magenta bold
+
+[diff]
+  renames = copies    # Git takes notice of renaming and making of copies.
+  algorithm = patience # Use patience algorithm instead of default.
+
+[merge]
+  tool = gvimdiff     # Default utility used for merging.
+  #ff = false          # Forcing git to always create an extra commit.
+
+[push]
+  default = current   # Safety mechanism to push to the selected branch only.
+  followTags = true   # Sane way to automatically push relevant tags.
+
+[rebase]
+  stat = true         # Shows diffstat of what changed upstream from since rebase.
+
+[pull]
+  rebase = true       # Always use 'git rebase' for 'git pull'
+
+[log]
+  date = relative     # Shows date like '2 hours ago' instead the exact date.
+  decorate = true     # Use specified colors.
+
+[init]
+  #templatedir = ~/.git/templates   # Directory for global templates.
+
+# Archive options
+[tar "tar.xz"]
+  command = xz -c
+
+# -------------------------------------------
+# Loading of per-path specific configuration:
+# -------------------------------------------
+
+# Custom configuration overrides -- from general to most specific:
+[includeIf "gitdir:~/**"]
+  path = ~/.git/profiles/deekej
+
+[includeIf "gitdir:~/devel/fedora/**"]
+  path = ~/.git/profiles/fedora
+
+[includeIf "gitdir:~/devel/gooddata/**"]
+  path = ~/.git/profiles/gooddata
+
+[grep]
+  lineNumber = true
+  extendedRegexp = true
