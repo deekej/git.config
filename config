@@ -113,6 +113,10 @@
   renames = copies    # Git takes notice of renaming and making of copies.
   algorithm = patience # Use patience algorithm instead of default.
 
+[grep]
+  lineNumber = true
+  extendedRegexp = true
+
 [merge]
   tool = gvimdiff     # Default utility used for merging.
   #ff = false          # Forcing git to always create an extra commit.
@@ -151,7 +155,3 @@
 
 [includeIf "gitdir:~/devel/gooddata/**"]
   path = ~/.config/git/profiles/gooddata
-
-[grep]
-  lineNumber = true
-  extendedRegexp = true
