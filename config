@@ -49,7 +49,7 @@
   editor = gvim -f                # Favorite editor for editing commit msgs etc.
 
   # Path to file containing types of files to ignore:
-  excludesfile = ~/.config/git/gitignore
+  excludesfile = ~/.config/git/ignore.global
 
   # Inform if tab character is in the initial part of the line,
   # inform if there are any trailing whitespaces and the end of line/file,
@@ -60,7 +60,7 @@
   pager = less -F -X
 
   # Path to global hooks:
-  #hooksPath = ~/.git/hooks/
+  #hooksPath = ~/.config/git/hooks/
 
   # Automatically fix CRLF line endings for files from Windows:
   #autocrlf = true
@@ -132,7 +132,7 @@
   decorate = true     # Use specified colors.
 
 [init]
-  #templatedir = ~/.git/templates   # Directory for global templates.
+  #templatedir = ~/.config/git/templates   # Directory for global templates.
 
 # Archive options
 [tar "tar.xz"]
@@ -144,13 +144,13 @@
 
 # Custom configuration overrides -- from general to most specific:
 [includeIf "gitdir:~/**"]
-  path = ~/.git/profiles/deekej
+  path = ~/.config/git/profiles/deekej
 
 [includeIf "gitdir:~/devel/fedora/**"]
-  path = ~/.git/profiles/fedora
+  path = ~/.config/git/profiles/fedora
 
 [includeIf "gitdir:~/devel/gooddata/**"]
-  path = ~/.git/profiles/gooddata
+  path = ~/.config/git/profiles/gooddata
 
 [grep]
   lineNumber = true
