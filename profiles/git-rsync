@@ -1,0 +1,16 @@
+# vim: filetype=gitconfig
+[user]
+  name = Dee'Kej                  # Your 'real' name used for commit submitting.
+  email = devel@deekej.io         # An e-mail to be used for commit submitting.
+  #signingkey = XXXXXXXXXXXXXXXX   # GPG key to be used for commit signing.
+
+[core]
+  # Don't use global ignore file:
+  excludesfile = false
+
+# -----------------------
+# GIT FLOW configuration:
+# -----------------------
+[gitflow "feature.finish"]
+  no-ff = true
+
