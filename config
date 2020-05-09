@@ -147,8 +147,11 @@
 # -------------------------------------------
 
 # Custom configuration overrides -- from general to most specific:
-[includeIf "gitdir:~/**"]
+[includeIf "gitdir:/**"]
   path = ~/.config/git/profiles/deekej
+
+[includeIf "gitdir:~/.tweaks/**"]
+  path = ~/.config/git/profiles/git-rsync
 
 [includeIf "gitdir:~/devel/fedora/**"]
   path = ~/.config/git/profiles/fedora
