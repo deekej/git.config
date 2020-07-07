@@ -1,5 +1,0 @@
-# vim: filetype=gitconfig
-[user]
-  name = Dee'Kej                    # Your 'real' name used for commit submitting.
-  email = david.kaspar@gooddata.com # An e-mail to be used for commit submitting.
-  #signingkey = XXXXXXXXXXXXXXXX     # GPG key to be used for commit signing.
