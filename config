@@ -155,6 +155,3 @@
 
 [includeIf "gitdir:~/devel/fedora/**"]
   path = ~/.config/git/profiles/fedora
-
-[includeIf "gitdir:~/devel/gooddata/**"]
-  path = ~/.config/git/profiles/gooddata
