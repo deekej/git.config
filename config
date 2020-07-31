@@ -136,6 +136,7 @@
   decorate = true     # Use specified colors.
 
 [init]
+  defaultBranch = main  # To follow the new naming conventions
   #templatedir = ~/.config/git/templates   # Directory for global templates.
 
 # Archive options
