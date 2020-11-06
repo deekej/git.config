@@ -162,3 +162,6 @@
 
 [includeIf "gitdir:~/devel/fedora/**"]
   path = ~/.config/git/profiles/fedora
+
+[includeIf "gitdir:~/devel/redhat/**"]
+  path = ~/.config/git/profiles/redhat
