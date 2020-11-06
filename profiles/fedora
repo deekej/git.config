@@ -1,4 +1,4 @@
-# vim: filetype=gitconfig
+# vi: filetype=gitconfig
 [user]
   name = Dee'Kej                  # Your 'real' name used for commit submitting.
   email = fedora@deekej.io        # An e-mail to be used for commit submitting.

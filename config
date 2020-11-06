@@ -1,10 +1,11 @@
+# vi: filetype=gitconfig
 [user]
-  # Default user configuration (can be overwritten by includeIf directives at the bottom):
-  useconfigonly = true            # Make sure a properly setup config is used everytime.
-
   name = Dee'Kej                  # Name used for commit submission.
   email = devel@deekej.io         # An e-mail to be used for commit submission.
   #signingkey = XXXXXXXXXXXXXXXX   # GPG key to be used for commit signing.
+
+  # Default user configuration (can be overwritten by includeIf directives at the bottom):
+  useconfigonly = true            # Make sure a properly setup config is used everytime.
 
 [gpg]
   program = gpg2                  # Use GPGv2 for commit signing.
