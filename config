@@ -165,3 +165,7 @@
 
 [includeIf "gitdir:~/devel/redhat/**"]
   path = ~/.config/git/profiles/redhat
+
+[includeIf "gitdir:~/.password-store/redhat/**"]
+  path = ~/.config/git/profiles/redhat
+
