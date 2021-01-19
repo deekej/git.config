@@ -51,8 +51,8 @@
   # autosetuprebase = always        # Use rebase instead of merge for 'git pull'.
 
 [core]
-  quotepath = true                          # Use "" quoting for path.
-  editor = /usr/libexec/launchers/gvim -f   # Favorite editor for editing commit msgs etc.
+  quotepath = true                                # Use "" quoting for path.
+  editor = /usr/libexec/launchers/gvim --nofork   # Favorite editor for editing commit msgs etc.
 
   # Path to file containing types of files to ignore:
   excludesfile = ~/.config/git/ignore.global
@@ -124,7 +124,7 @@
   extendedRegexp = true
 
 [merge]
-  tool = gvimdiff     # Default utility used for merging.
+  tool = /usr/libexec/launchers/gvimdiff     # Default utility used for merging.
   #ff = false          # Forcing git to always create an extra commit.
 
 [push]
@@ -142,7 +142,7 @@
   decorate = true     # Use specified colors.
 
 [init]
-  defaultBranch = main  # To follow the new naming conventions
+  defaultBranch = main                    # To follow the new naming convention
   #templatedir = ~/.config/git/templates   # Directory for global templates.
 
 # Archive options
