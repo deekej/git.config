@@ -124,7 +124,7 @@
   extendedRegexp = true
 
 [merge]
-  tool = /usr/libexec/launchers/gvimdiff     # Default utility used for merging.
+  tool = gvimdiff     # Default utility used for merging.
   #ff = false          # Forcing git to always create an extra commit.
 
 [push]
