@@ -2,7 +2,7 @@
 [user]
   name = Dee'Kej                  # Your 'real' name used for commit submitting.
   email = fedora@deekej.io        # An e-mail to be used for commit submitting.
-  #signingkey = XXXXXXXXXXXXXXXX   # GPG key to be used for commit signing.
+  signingkey = D8B46F6F           # GPG key to be used for commit signing.
 
 # -----------------------
 # GIT FLOW configuration:
