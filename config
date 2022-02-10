@@ -23,6 +23,8 @@
 
   fetch-branch = !git fetch upstream "$1" && git checkout -b "$1" upstream/"$1" && git push -u origin "$1"
 
+  pr = !gh pr checkout
+
   hub = !hub 
   gdclone = !gdclone
   #pull-request = !hub pull-request
@@ -52,7 +54,7 @@
 
 [core]
   quotepath = true                                # Use "" quoting for path.
-  editor = /usr/libexec/launchers/gvim --nofork   # Favorite editor for editing commit msgs etc.
+  editor = gvim --nofork                          # Favorite editor for editing commit msgs etc.
 
   # Path to file containing types of files to ignore:
   excludesfile = ~/.config/git/ignore.global
