@@ -23,12 +23,6 @@
 
   fetch-branch = !git fetch upstream "$1" && git checkout -b "$1" upstream/"$1" && git push -u origin "$1"
 
-  pr = !gh pr checkout
-
-  hub = !hub 
-  gdclone = !gdclone
-  #pull-request = !hub pull-request
-
   # Commit count between two commits:
   cc = rev-list --count
   cp = cherry-pick
