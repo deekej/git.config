@@ -1,6 +1,6 @@
 # vi: filetype=gitconfig
 [user]
-  name = David Kaspar [Dee'Kej]   # Your 'real' name used for commit submitting.
+  name = David Kaspar // Dee'Kej   # Your 'real' name used for commit submitting.
   email = deekej@redhat.com       # An e-mail to be used for commit submitting.
   signingkey = A49398AC           # GPG key to be used for commit signing.
 
