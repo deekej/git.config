@@ -1,0 +1,7 @@
+# vi: filetype=gitconfig
+[user]
+  name = Dee'Kej                  # Your 'real' name used for commit submitting.
+  email = admin@deekej.io         # An e-mail to be used for commit submitting.
+
+[commit]
+  gpgSign = false                 # Do not automatically sign commits with GPG

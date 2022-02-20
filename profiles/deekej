@@ -4,6 +4,9 @@
   email = devel@deekej.io         # An e-mail to be used for commit submitting.
   signingkey = 6AA16E5E           # GPG key to be used for commit signing.
 
+[commit]
+  gpgSign = true                  # Automatically GPG-sign every commit
+
 # -----------------------
 # GIT FLOW configuration:
 # -----------------------

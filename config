@@ -7,9 +7,6 @@
   # Default user configuration (can be overwritten by includeIf directives at the bottom):
   useconfigonly = true            # Make sure a properly setup config is used everytime.
 
-[commit]
-  gpgSign = true                  # Automatically GPG-sign every commit
-
 [gpg]
   program = gpg2                  # Use GPGv2 for commit signing.
 
@@ -154,10 +151,15 @@
 
 # Custom configuration overrides -- from general to most specific:
 [includeIf "gitdir:/**"]
+  path = ~/.config/git/profiles/admin
+
+# ------------------------------------
+
+[includeIf "gitdir:~/**"]
   path = ~/.config/git/profiles/deekej
 
-[includeIf "gitdir:~/.tweaks/**"]
-  path = ~/.config/git/profiles/git-rsync
+[includeIf "gitdir:/root/**"]
+  path = ~/.config/git/profiles/admin
 
 [includeIf "gitdir:~/devel/fedora/**"]
   path = ~/.config/git/profiles/fedora
