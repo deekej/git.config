@@ -80,9 +80,3 @@ doc/html
 # We want the .gitignore file to be tracked:
 !.gitignore
 !.gitkeep
-
-# ########################################################################### #
-# Red Hat specific files:
-# ########################################################################### #
-upstream
-tests
