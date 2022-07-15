@@ -39,10 +39,6 @@
   cc = devel@deekej.io
   smtpserver = smtp.gmail.com
 
-[branch]
-  # NOTE: Not working anymore for git version >= 1.7.9
-  # autosetuprebase = always        # Use rebase instead of merge for 'git pull'.
-
 [core]
   quotepath = true                                # Use "" quoting for path.
   editor = gvim --nofork                          # Favorite editor for editing commit msgs etc.
@@ -118,7 +114,6 @@
 
 [merge]
   tool = gvimdiff     # Default utility used for merging.
-  #ff = false          # Forcing git to always create an extra commit.
 
 [push]
   default = current   # Safety mechanism to push to the selected branch only.
@@ -126,6 +121,11 @@
 
 [rebase]
   stat = true         # Shows diffstat of what changed upstream from since rebase.
+
+[fetch]
+  # Recurse sumbodules with 'git fetch/pull' when the top-level repository
+  # has updated the submodules' checkout commit...
+  recurseSubmodules = on-demand
 
 [pull]
   rebase = true       # Always use 'git rebase' for 'git pull'
