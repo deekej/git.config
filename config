@@ -1,4 +1,4 @@
-# vi: filetype=gitconfig
+# vi: fi/etype=gitconfig
 [user]
   name = Dee'Kej                  # Name used for commit submission.
   email = devel@deekej.io         # An e-mail to be used for commit submission.
@@ -30,9 +30,6 @@
   ll = log --graph --full-history --pretty=oneline --abbrev-commit
 
   fix-bisect = bisect start --term-old broken --term-new fixed
-
-  # Workaround for missing git-completion:
-  filter-repo = filter-repo
 
 [sendemail]
   confirm = always
