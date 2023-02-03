@@ -23,6 +23,8 @@
 
   fetch-branch = !git fetch upstream "$1" && git checkout -b "$1" upstream/"$1" && git push -u origin "$1"
 
+  sed = ! git grep -z --full-name -l '.' | xargs -0 sed -i -r -e
+
   # Commit count between two commits:
   cc = rev-list --count
   cp = cherry-pick
