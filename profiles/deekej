@@ -7,9 +7,3 @@
 [commit]
   gpgSign = true                  # Automatically GPG-sign every commit
 
-# -----------------------
-# GIT FLOW configuration:
-# -----------------------
-[gitflow "feature.finish"]
-  no-ff = true
-

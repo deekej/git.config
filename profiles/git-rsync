@@ -11,9 +11,3 @@
   # Don't use global ignore file:
   excludesfile = false
 
-# -----------------------
-# GIT FLOW configuration:
-# -----------------------
-[gitflow "feature.finish"]
-  no-ff = true
-

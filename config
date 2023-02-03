@@ -144,6 +144,12 @@
 [tar "tar.xz"]
   command = xz -c
 
+# -----------------------
+# GIT FLOW configuration:
+# -----------------------
+[gitflow "feature.finish"]
+  no-ff = true
+
 # -------------------------------------------
 # Loading of per-path specific configuration:
 # -------------------------------------------

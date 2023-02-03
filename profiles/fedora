@@ -4,8 +4,3 @@
   email = fedora@deekej.io        # An e-mail to be used for commit submitting.
   signingkey = D8B46F6F           # GPG key to be used for commit signing.
 
-# -----------------------
-# GIT FLOW configuration:
-# -----------------------
-[gitflow "feature.finish"]
-  no-ff = true
