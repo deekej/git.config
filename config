@@ -144,6 +144,9 @@
 [tar "tar.xz"]
   command = xz -c
 
+[advice]
+  skippedCherryPicks = false
+
 # -----------------------
 # GIT FLOW configuration:
 # -----------------------
