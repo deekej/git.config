@@ -125,6 +125,8 @@
   stat = true         # Shows diffstat of what changed upstream from since rebase.
 
 [fetch]
+  prune = true        # Automatically cleanup no longer existing branches @ origin.
+
   # Recurse sumbodules with 'git fetch/pull' when the top-level repository
   # has updated the submodules' checkout commit...
   recurseSubmodules = on-demand
