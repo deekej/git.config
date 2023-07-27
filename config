@@ -11,7 +11,7 @@
   program = gpg2                  # Use GPGv2 for commit signing.
 
 [alias]
-  last = log --graph -1 HEAD
+  last = log --graph --no-merges -1 HEAD
   amend = commit --amend --no-edit
   reword = commit --amend
   cached = diff --cached
