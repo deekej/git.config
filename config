@@ -168,6 +168,9 @@
 [includeIf "gitdir:~/**"]
   path = ~/.config/git/profiles/deekej
 
+[includeIf "gitdir:~/etera/**"]
+  path = ~/.config/git/profiles/redhat
+
 [includeIf "gitdir:/root/**"]
   path = ~/.config/git/profiles/admin
 
