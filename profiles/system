@@ -4,4 +4,7 @@
   email = admin@deekej.io         # An e-mail to be used for commit submitting.
 
 [commit]
-  gpgSign = false                 # Do not automatically sign commits with GPG
+  gpgsign = false                 # Automatically GPG-sign every commit.
+
+[tag]
+  gpgsign = false                 # Automatically GPG-sign every tag.

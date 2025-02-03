@@ -2,13 +2,22 @@
 [user]
   name = Dee'Kej                  # Name used for commit submission.
   email = devel@deekej.io         # An e-mail to be used for commit submission.
-  signingkey = 6AA16E5E           # GPG key to be used for commit signing.
+  signingkey = C8EBA94F04BE9F74   # GPG (sub)key to be used for signing of commits.
 
   # Default user configuration (can be overwritten by includeIf directives at the bottom):
   useconfigonly = true            # Make sure a properly setup config is used everytime.
 
 [gpg]
   program = gpg2                  # Use GPGv2 for commit signing.
+
+# NOTE: We sign the commits/tags per git-repo / path basis...
+[commit]
+  gpgsign = false                 # Automatically GPG-sign every commit.
+
+[tag]
+  gpgsign = false                 # Automatically GPG-sign every tag.
+
+# ---| ALIASES | --------------------------------------------------------------
 
 [alias]
   last = log --graph --no-merges -1 HEAD
@@ -18,7 +27,7 @@
   check = checkout
 
   set-upstream = remote add upstream
-  delete = !git branch -D "$1" && git push --delete origin
+  delete = !git branch -D "$1" && git push --progress --prune --delete origin 2> /dev/null
   sync = !git pull upstream "$(git rev-parse --abbrev-ref HEAD)" && git fetch upstream "refs/tags/*:refs/tags/*" && git push origin --all
 
   fetch-branch = !git fetch upstream "$1" && git checkout -b "$1" upstream/"$1" && git push -u origin "$1"
@@ -33,13 +42,7 @@
 
   fix-bisect = bisect start --term-old broken --term-new fixed
 
-[sendemail]
-  confirm = always
-  suppressfrom = true
-  chainreplyto = false
-
-  cc = devel@deekej.io
-  smtpserver = smtp.gmail.com
+# ---| CORE CONFIG |-----------------------------------------------------------
 
 [core]
   quotepath = true                                # Use "" quoting for path.
@@ -62,9 +65,53 @@
   # Automatically fix CRLF line endings for files from Windows:
   #autocrlf = true
 
+[advice]
+  skippedCherryPicks = false
+
 [apply]
   # If any whitespace error is found, correct it before patching:
   whitespace = warn
+
+[diff]
+  renames = copies    # Git takes notice of renaming and making of copies.
+  algorithm = patience # Use patience algorithm instead of default.
+
+[fetch]
+  prune = true        # Automatically cleanup no longer existing branches @ origin.
+
+  # Recurse sumbodules with 'git fetch/pull' when the top-level repository
+  # has updated the submodules' checkout commit...
+  recurseSubmodules = on-demand
+
+[grep]
+  lineNumber = true
+  extendedRegexp = true
+
+[init]
+  defaultBranch = main                    # To follow the new naming convention
+  #templatedir = ~/.config/git/templates   # Directory for global templates.
+  #
+[log]
+  date = relative     # Shows date like '2 hours ago' instead the exact date.
+  decorate = true     # Use specified colors.
+
+[merge]
+  tool = gvimdiff     # Default utility used for merging.
+
+[push]
+  default = current   # Safety mechanism to push to the selected branch only.
+  followTags = true   # Sane way to automatically push relevant tags.
+
+[pull]
+  rebase = true       # Always use 'git rebase' for 'git pull'
+
+[rebase]
+  stat = true         # Shows diffstat of what changed upstream from since rebase.
+
+[tar "tar.xz"]
+  command = xz -c     # Archive options.
+
+# ---| COLORS |----------------------------------------------------------------
 
 # Enabling colors if the stdout is connected to terminal:
 [color]
@@ -106,76 +153,41 @@
   dirty-stash = yellow bold
   repo-state = magenta bold
 
-[diff]
-  renames = copies    # Git takes notice of renaming and making of copies.
-  algorithm = patience # Use patience algorithm instead of default.
-
-[grep]
-  lineNumber = true
-  extendedRegexp = true
-
-[merge]
-  tool = gvimdiff     # Default utility used for merging.
-
-[push]
-  default = current   # Safety mechanism to push to the selected branch only.
-  followTags = true   # Sane way to automatically push relevant tags.
-
-[rebase]
-  stat = true         # Shows diffstat of what changed upstream from since rebase.
-
-[fetch]
-  prune = true        # Automatically cleanup no longer existing branches @ origin.
-
-  # Recurse sumbodules with 'git fetch/pull' when the top-level repository
-  # has updated the submodules' checkout commit...
-  recurseSubmodules = on-demand
-
-[pull]
-  rebase = true       # Always use 'git rebase' for 'git pull'
-
-[log]
-  date = relative     # Shows date like '2 hours ago' instead the exact date.
-  decorate = true     # Use specified colors.
-
-[init]
-  defaultBranch = main                    # To follow the new naming convention
-  #templatedir = ~/.config/git/templates   # Directory for global templates.
-
-# Archive options
-[tar "tar.xz"]
-  command = xz -c
-
-[advice]
-  skippedCherryPicks = false
-
-# -----------------------
-# GIT FLOW configuration:
-# -----------------------
+# ---| GIT FLOW |--------------------------------------------------------------
 [gitflow "feature.finish"]
   no-ff = true
 
-# -------------------------------------------
-# Loading of per-path specific configuration:
-# -------------------------------------------
+# ---| PASS |------------------------------------------------------------------
+[pass]
+  signcommits = true
 
-# Custom configuration overrides -- from general to most specific:
+# ---| CUSTOM SUB-CONFIG PATHS |-----------------------------------------------
+
+# Custom configuration overrides - from most general to most specific:
 [includeIf "gitdir:/**"]
-  path = ~/.config/git/profiles/admin
+  path = ~/.config/git/profiles/system
+
+[includeIf "gitdir:/root/**"]
+  path = ~/.config/git/profiles/system
+
+[includeIf "gitdir:/etc/profile.d/**"]
+  path = ~/.config/git/profiles/system
+
+[includeIf "gitdir:/usr/local/**"]
+  path = ~/.config/git/profiles/system
 
 # ------------------------------------
 
 [includeIf "gitdir:~/**"]
   path = ~/.config/git/profiles/deekej
 
-[includeIf "gitdir:~/etera/**"]
-  path = ~/.config/git/profiles/redhat
-
-[includeIf "gitdir:/root/**"]
-  path = ~/.config/git/profiles/admin
-
 [includeIf "gitdir:~/devel/fedora/**"]
   path = ~/.config/git/profiles/fedora
+
+# ------------------------------------
+
+[includeIf "gitdir:~/etera/**"]
+  path = ~/.config/git/profiles/redhat
 
 [includeIf "gitdir:~/devel/redhat/**"]
   path = ~/.config/git/profiles/redhat

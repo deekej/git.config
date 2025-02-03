@@ -2,10 +2,13 @@
 [user]
   name = David Kaferad // Dee'Kej  # Your 'real' name used for commit submitting.
   email = deekej@redhat.com       # An e-mail to be used for commit submitting.
-  signingkey = 692F13D5A49398AC   # GPG key to be used for commit signing.
+  signingkey = B90C6CB5521647B5   # GPG (sub)key to be used for signing of commits.
 
 [commit]
-  gpgSign = true                  # Automatically GPG-sign every commit
+  gpgsign = true                  # Automatically GPG-sign every commit.
+
+[tag]
+  gpgsign = true                  # Automatically GPG-sign every tag.
 
 [sendemail]
   confirm = always

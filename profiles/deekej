@@ -2,8 +2,10 @@
 [user]
   name = Dee'Kej                  # Your 'real' name used for commit submitting.
   email = devel@deekej.io         # An e-mail to be used for commit submitting.
-  signingkey = 6AA16E5E           # GPG key to be used for commit signing.
+  signingkey = C8EBA94F04BE9F74   # GPG (sub)key to be used for signing of commits.
 
 [commit]
-  gpgSign = true                  # Automatically GPG-sign every commit
+  gpgsign = true                  # Automatically GPG-sign every commit.
 
+[tag]
+  gpgsign = true                  # Automatically GPG-sign every tag.
