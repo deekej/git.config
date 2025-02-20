@@ -178,20 +178,20 @@
 
 # ------------------------------------
 
-[includeIf "gitdir:~/**"]
+[includeIf "gitdir:/var/home/deekej/**"]
   path = ~/.config/git/profiles/deekej
 
-[includeIf "gitdir:~/devel/fedora/**"]
+[includeIf "gitdir:/var/home/deekej/devel/fedora/**"]
   path = ~/.config/git/profiles/fedora
 
 # ------------------------------------
 
-[includeIf "gitdir:~/etera/**"]
+[includeIf "gitdir:/var/home/deekej/etera/**"]
   path = ~/.config/git/profiles/redhat
 
-[includeIf "gitdir:~/devel/redhat/**"]
+[includeIf "gitdir:/var/home/deekej/devel/redhat/**"]
   path = ~/.config/git/profiles/redhat
 
-[includeIf "gitdir:~/.password-store/redhat/**"]
+[includeIf "gitdir:/var/home/deekej/.password-store/redhat/**"]
   path = ~/.config/git/profiles/redhat
 
