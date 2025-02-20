@@ -111,6 +111,10 @@
 [tar "tar.xz"]
   command = xz -c     # Archive options.
 
+[safe]
+  directory = /etc/profile.d
+  directory = /var/usrlocal
+
 # ---| COLORS |----------------------------------------------------------------
 
 # Enabling colors if the stdout is connected to terminal:
@@ -201,3 +205,4 @@
 
 [includeIf "gitdir:/var/home/deekej/.password-store/redhat/**"]
   path = ~/.config/git/profiles/redhat
+
