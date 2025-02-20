@@ -153,6 +153,13 @@
   dirty-stash = yellow bold
   repo-state = magenta bold
 
+# ---| GIT LFS |---------------------------------------------------------------
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+
 # ---| GIT FLOW |--------------------------------------------------------------
 [gitflow "feature.finish"]
   no-ff = true
@@ -194,4 +201,3 @@
 
 [includeIf "gitdir:/var/home/deekej/.password-store/redhat/**"]
   path = ~/.config/git/profiles/redhat
-
