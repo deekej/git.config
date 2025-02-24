@@ -181,6 +181,9 @@
 [includeIf "gitdir:/root/**"]
   path = ~/.config/git/profiles/system
 
+[includeIf "gitdir:/etc/**"]
+  path = ~/.config/git/profiles/system
+
 [includeIf "gitdir:/etc/profile.d/**"]
   path = ~/.config/git/profiles/system
 
