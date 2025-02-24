@@ -25,6 +25,7 @@
   reword = commit --amend
   cached = diff --cached
   check = checkout
+  surr = submodule update --recursive --remote
 
   set-upstream = remote add upstream
   delete = !git branch -D "$1" && git push --progress --prune --delete origin 2> /dev/null
