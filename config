@@ -61,7 +61,7 @@
   pager = less -F -X
 
   # Path to global hooks:
-  #hooksPath = ~/.config/git/hooks/
+  hooksPath = ~/.config/git/hooks/
 
   # Automatically fix CRLF line endings for files from Windows:
   #autocrlf = true
@@ -91,7 +91,7 @@
 [init]
   defaultBranch = main                    # To follow the new naming convention
   #templatedir = ~/.config/git/templates   # Directory for global templates.
-  #
+
 [log]
   date = relative     # Shows date like '2 hours ago' instead the exact date.
   decorate = true     # Use specified colors.

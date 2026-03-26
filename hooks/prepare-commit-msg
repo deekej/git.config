@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Prepare the AI tag and info for AI-assisted code:
+GIT_REPO="$(git rev-parse --git-dir)"
+SENTINEL_FILE="${GIT_REPO}/.ai-assisted"
+
+if [[ -r "${SENTINEL_FILE}" ]]; then
+    COMMIT_MSG_FILE="${1}"
+    AI_CONTRIBUTOR=$(cat ${GIT_REPO}/.ai-contributor)
+
+    echo "" >> "${COMMIT_MSG_FILE}"
+    echo "Assisted-by: ${AI_CONTRIBUTOR}" >> "${COMMIT_MSG_FILE}"
+
+    rm -f "${SENTINEL_FILE}"
+fi
